@@ -1,0 +1,26 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<h1>Enter A Zip Code</h1>
+
+<body>
+<form method="GET" action="/">
+	<p>Zip Code: <input type="text", name="zip_code", value=<%=params[:zip_code]%>></p>
+	<input type="submit">
+</form>
+
+
+<% @zip_entries.each do |entry| %>
+	<p>
+		CBSA: <%= entry[:cbsa] %></br>
+		MSA: <%= entry[:msa] %></br>
+		Population in 2014: <%= entry[:population_2014] %></br>
+		Population in 2015: <%= entry[:population_2015] %></br>
+	</p>
+<% end %>
+
+<p>	
+	<% if @message %>
+		<%= @message %>
+	<% end %>
+</p>
+</body>
