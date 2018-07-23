@@ -55,7 +55,9 @@ class Message
 	end
 
 	def assign_message
-		if !response.success? && !zip_code.to_s.empty?
+		if zip_code.to_s.empty?
+			message = nil
+		elsif !response.success? && !zip_code.to_s.empty?
 			message = response.to_json
 		else
 			if zip_entries.empty?
