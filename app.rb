@@ -1,7 +1,5 @@
 require 'sinatra'
 require 'httparty'
-require 'pry'
-
 
 get '/' do
 	zip_code = params[:zip_code]
